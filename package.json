@@ -1,15 +1,14 @@
 {
   "name": "setd-stack",
   "scripts": {
-    "dev": "solid-start dev",
-    "build": "solid-start build",
-    "start": "solid-start start",
+    "dev": "bun --bun solid-start dev",
+    "build": "bun --bun solid-start build",
+    "start": "bun --bun solid-start start",
     "push": "drizzle-kit push:pg",
     "studio": "drizzle-kit studio"
   },
   "type": "module",
   "devDependencies": {
-    "@types/node": "20.6.3",
     "autoprefixer": "10.4.16",
     "bun-types": "1.0.2",
     "drizzle-kit": "0.19.13",
@@ -33,8 +32,5 @@
     "postgres": "3.3.5",
     "solid-js": "1.7.12",
     "solid-start": "0.3.6"
-  },
-  "engines": {
-    "node": ">=18"
   }
 }
