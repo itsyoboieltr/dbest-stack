@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@elysiajs/eden": "0.7.1",
-    "@paralleldrive/cuid2": "^2.2.2",
+    "@paralleldrive/cuid2": "2.2.2",
     "@solidjs/meta": "0.28.6",
     "@solidjs/router": "0.8.3",
     "@tanstack/solid-query": "5.0.0-alpha.20",
