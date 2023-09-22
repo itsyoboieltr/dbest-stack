@@ -13,7 +13,7 @@ const serverEnvSchema = Type.Object({
   }),
 });
 
-const getDatabaseConnectionData = () => ({
+const getDatabaseData = () => ({
   host: process.env.DATABASE_HOST || 'localhost',
   port: process.env.DATABASE_PORT ? +process.env.DATABASE_PORT : 5432,
   user: process.env.DATABASE_USER || 'postgres',
@@ -22,13 +22,13 @@ const getDatabaseConnectionData = () => ({
   ssl: process.env.DATABASE_SSL === 'true',
 });
 
-const makeDatabaseUrl = () => {
-  const { host, port, user, password, name, ssl } = getDatabaseConnectionData();
+const getDatabaseUrl = () => {
+  const { host, port, user, password, name, ssl } = getDatabaseData();
   return `postgresql://${user}${
     password ? `:${password}` : ''
   }@${host}:${port}/${name}${ssl ? '?sslmode=require' : ''}`;
 };
 
 export const serverEnv = parse(serverEnvSchema, {
-  database: { ...getDatabaseConnectionData(), url: makeDatabaseUrl() },
+  database: { ...getDatabaseData(), url: getDatabaseUrl() },
 });
