@@ -31,16 +31,26 @@ Bun will perform the following steps:
 
 ## Getting started
 
-Once the project is created and the dependencies are installed, the environment variables need to be set up. The following environment variables are required for the project to run:
+Once the project is created and the dependencies are installed, the environment variables need to be set up. The following environment variables can be configured:
 
 [.env.example](.env.example)
 
 ```bash
-DATABASE_URL=postgres://postgres:adminadmin@0.0.0.0:5432/db
-VITE_HOST_URL=http://localhost:3000
+DATABASE_HOST="localhost"
+DATABASE_PORT="5432"
+DATABASE_USER="postgres"
+DATABASE_PASSWORD="postgres"
+DATABASE_NAME="postgres"
+DATABASE_SSL="false"
+VITE_HOST_URL="http://localhost:3000"
+COMPOSE_APP_PORT="3000"
+COMPOSE_DATABASE_BACKUP_PATH="$HOME/backup"
+COMPOSE_PROFILES=development
 ```
 
-If your database schema does not match the schema defined by drizzle, then the database needs to be synchronized. This can be done by running the following command:
+The most important thing to configure is the database connection, as running the app without a database connection will result in an instant error.
+
+In case your database schema does not match the schema defined by drizzle, then the database needs to be synchronized. This can be done by running the following command:
 
 ```bash
 bun push
@@ -74,4 +84,32 @@ Run in production by running the following command:
 
 ```bash
 bun start
+```
+
+## Deployment
+
+Using the [Dockerfile](Dockerfile) or the [compose.yaml](compose.yaml) file, the application can be deployed to any docker host. The following command will build the docker image and start the application.
+
+```bash
+docker compose up
+```
+
+Important notes for production use:
+
+1. Set the `COMPOSE_APP_PORT` environment variable to the port that the application should be exposed on.
+
+```bash
+COMPOSE_APP_PORT="3000"
+```
+
+2. In a production setting, you might want to enable backups for the database. This can be done by setting the `COMPOSE_PROFILES` environment variable to `production`.
+
+```bash
+COMPOSE_PROFILES="production"
+```
+
+3. The `COMPOSE_DATABASE_BACKUP_PATH` environment variable can be used to customize the path where the database backups are stored.
+
+```bash
+COMPOSE_DATABASE_BACKUP_PATH="$HOME/backup"
 ```

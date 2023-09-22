@@ -1,0 +1,12 @@
+.solid
+dist
+.vscode
+node_modules
+.dockerignore
+.env
+.env.example
+.gitignore
+compose.yaml
+Dockerfile
+LICENSE
+README.md
