@@ -31,6 +31,6 @@
     "elysia": "0.7.9",
     "postgres": "3.3.5",
     "solid-js": "1.7.12",
-    "solid-start": "0.3.6"
+    "solid-start": "0.3.5"
   }
 }
