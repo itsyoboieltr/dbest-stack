@@ -59,7 +59,7 @@ export default function Home() {
         </button>
       </div>
       <br />
-      <pre>SolidStart + ElysiaJS + Tailwind CSS + DrizzleORM</pre>
+      <pre>DrizzleORM + Bun + ElysiaJS + SolidStart + Tailwind CSS</pre>
     </div>
   );
 }

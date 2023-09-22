@@ -1,25 +1,25 @@
-# SETD stack
+# DBEST stack
 
-The `SETD` (SolidStart, ElysiaJS, Tailwind CSS, DrizzleORM) stack is a 🔥 `BLAZINGLY FAST` 🔥 full-stack typescript-powered `100% type-safe` web development solution that provides `everything` you need to build a `production-ready` web app based on the performant and scalable SolidStart meta-framework. It consists of:
+The `DBEST` (DrizzleORM, Bun, ElysiaJS, SolidStart, Tailwind CSS) stack is a bun-based 🔥 `BLAZINGLY FAST` 🔥 full-stack `100% type-safe` web development solution that provides `everything` you need to build a `production-ready` web app based on the performant and scalable SolidStart meta-framework. It consists of:
 
-- [TypeScript](https://typescriptlang.org)
-- [SolidStart](https://start.solidjs.com/)
-- [ElysiaJS](https://elysiajs.com)
-- [Tailwind CSS](https://tailwindcss.com)
 - [DrizzleORM](https://orm.drizzle.team)
+- [Bun](https://bun.sh)
+- [ElysiaJS](https://elysiajs.com)
+- [SolidStart](https://start.solidjs.com/)
+- [Tailwind CSS](https://tailwindcss.com)
 
 ## Creating a project
 
 Create a new project
 
 ```bash
-bun create itsyoboieltr/setd-stack
+bun create itsyoboieltr/dbest-stack
 ```
 
-Optionally specify a name for the destination folder. If no destination is specified, the name `setd-stack` will be used.
+Optionally specify a name for the destination folder. If no destination is specified, the name `dbest-stack` will be used.
 
 ```bash
-bun create itsyoboieltr/setd-stack my-app
+bun create itsyoboieltr/dbest-stack my-app
 ```
 
 Bun will perform the following steps:

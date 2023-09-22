@@ -35,7 +35,7 @@ export default function Root() {
   return (
     <Html lang={'en'}>
       <Head>
-        <Title>SETD</Title>
+        <Title>DBEST</Title>
         <Meta charset={'utf-8'} />
         <Meta
           name={'viewport'}

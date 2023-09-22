@@ -10,4 +10,4 @@ export const db = drizzle(client, { schema, logger: true });
 const result = await db.select().from(schema.hello);
 
 if (!result.length)
-  await db.insert(schema.hello).values({ data: 'Hello from the SETD stack!' });
+  await db.insert(schema.hello).values({ data: 'Hello from the DBEST stack!' });

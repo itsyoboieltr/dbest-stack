@@ -1,5 +1,5 @@
 {
-  "name": "setd-stack",
+  "name": "dbest-stack",
   "scripts": {
     "dev": "bun --bun solid-start dev",
     "build": "bun --bun solid-start build",
