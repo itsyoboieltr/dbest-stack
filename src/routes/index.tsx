@@ -44,10 +44,14 @@ export default function Home() {
           type={'text'}
           value={data()}
           onInput={({ currentTarget: { value } }) => setData(value)}
+          onKeyUp={({ key }) => {
+            if (key === 'Enter' && !helloAdd.isPending && data())
+              helloAdd.mutate(data());
+          }}
         />
         <button
           class={
-            'border-2 border-black rounded px-4 bg-gray-300 hover:bg-gray-400 active:bg-gray-400 disabled:bg-gray-400 disabled:cursor-not-allowed'
+            'border-2 border-black rounded px-4 bg-gray-300 hover:bg-gray-400 active:bg-gray-400 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all'
           }
           disabled={helloAdd.isPending || !data()}
           onClick={() => helloAdd.mutate(data())}>

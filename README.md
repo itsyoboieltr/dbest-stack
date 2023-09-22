@@ -57,7 +57,7 @@ bun studio
 If everything is set up correctly, you can start the development server with:
 
 ```bash
-bun dev
+bun --bun dev
 ```
 
 ## Building
@@ -65,7 +65,7 @@ bun dev
 Build for production by running the following command:
 
 ```bash
-bun run build
+bun run --bun build
 ```
 
 ## Running
@@ -73,5 +73,5 @@ bun run build
 Run in production by running the following command:
 
 ```bash
-bun start
+bun --bun start
 ```

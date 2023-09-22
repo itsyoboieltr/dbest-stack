@@ -9,15 +9,16 @@
   },
   "type": "module",
   "devDependencies": {
-    "@types/node": "18.17.18",
+    "@types/node": "20.6.3",
     "autoprefixer": "10.4.16",
+    "bun-types": "1.0.2",
     "drizzle-kit": "0.19.13",
-    "esbuild": "0.14.54",
+    "esbuild": "0.19.3",
     "pg": "8.11.3",
     "postcss": "8.4.30",
-    "solid-start-node": "0.3.5",
+    "solid-start-bun": "0.3.6",
     "tailwindcss": "3.3.3",
-    "typescript": "4.9.5",
+    "typescript": "5.2.2",
     "vite": "4.4.9"
   },
   "dependencies": {
@@ -28,10 +29,10 @@
     "@tanstack/solid-query": "5.0.0-alpha.20",
     "drizzle-orm": "0.28.6",
     "drizzle-typebox": "0.1.1",
-    "elysia": "0.7.5",
+    "elysia": "0.7.9",
     "postgres": "3.3.5",
     "solid-js": "1.7.12",
-    "solid-start": "0.3.5"
+    "solid-start": "0.3.6"
   },
   "engines": {
     "node": ">=18"

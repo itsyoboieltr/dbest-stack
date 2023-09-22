@@ -19,7 +19,7 @@ export default function Hello(props: HelloProps) {
       <pre>{props.data}</pre>
       <button
         class={
-          'border-2 border-black rounded px-4 bg-red-300 active:bg-red-400 hover:bg-red-400 disabled:bg-red-400 disabled:cursor-not-allowed'
+          'border-2 border-black rounded px-4 bg-red-300 active:bg-red-400 hover:bg-red-400 disabled:bg-red-400 disabled:cursor-not-allowed transition-all'
         }
         disabled={helloDelete.isPending}
         onClick={() => helloDelete.mutate(props.id)}>
