@@ -28,7 +28,6 @@ Bun will perform the following steps:
 - Copy all template files into the `destination folder`
 - Install dependencies with `bun i`.
 - Initialize a fresh Git repo. Opt out with the `--no-git` flag.
-- Run the template's configured `start` script, if defined.
 
 ## Getting started
 
