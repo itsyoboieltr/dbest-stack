@@ -15,6 +15,8 @@
     "esbuild": "0.19.3",
     "pg": "8.11.3",
     "postcss": "8.4.30",
+    "prettier": "3.0.3",
+    "prettier-plugin-tailwindcss": "0.5.4",
     "solid-start-bun": "0.3.6",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2",
@@ -32,5 +34,13 @@
     "postgres": "3.3.5",
     "solid-js": "1.7.12",
     "solid-start": "0.3.5"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "jsxSingleQuote": true,
+    "bracketSameLine": true,
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
   }
 }

@@ -8,10 +8,10 @@ export const hello = pgTable('Hello', {
   data: varchar('data').notNull(),
 });
 
-export const helloInsertSchema = createInsertSchema(hello, {
-  id: Type.Optional(Type.String({ minLength: 24 })),
+const insertSchema = createInsertSchema(hello, {
   data: Type.String({ minLength: 1 }),
 });
+export const helloInsertSchema = Type.Omit(insertSchema, ['id']);
 export type HelloInsert = typeof helloInsertSchema.static;
 
 export const helloSelectSchema = createSelectSchema(hello);

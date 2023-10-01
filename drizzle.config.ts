@@ -5,5 +5,5 @@ export default {
   schema: './src/server/db/schemas/**/index.ts',
   out: './drizzle',
   driver: 'pg',
-  dbCredentials: { connectionString: serverEnv.database.url },
+  dbCredentials: { connectionString: serverEnv.DATABASE_URL },
 } satisfies Config;

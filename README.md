@@ -36,16 +36,15 @@ Once the project is created and the dependencies are installed, the environment 
 [.env.example](.env.example)
 
 ```bash
-DATABASE_HOST="localhost"
-DATABASE_PORT="5432"
-DATABASE_USER="postgres"
-DATABASE_PASSWORD="postgres"
-DATABASE_NAME="postgres"
-DATABASE_SSL="false"
+DATABASE_URL=""
 VITE_HOST_URL="http://localhost:3000"
 COMPOSE_APP_PORT="3000"
+COMPOSE_DATABASE_PORT="5432"
+COMPOSE_DATABASE_USER="postgres"
+COMPOSE_DATABASE_PASSWORD="postgres"
+COMPOSE_DATABASE_NAME="postgres"
 COMPOSE_DATABASE_BACKUP_PATH="$HOME/backup"
-COMPOSE_PROFILES=development
+COMPOSE_PROFILES="development"
 ```
 
 The most important thing to configure is the database connection, as running the app without a database connection will result in an instant error.
@@ -96,19 +95,13 @@ docker compose up
 
 Important notes for production use:
 
-1. Set the `COMPOSE_APP_PORT` environment variable to the port that the application should be exposed on.
-
-```bash
-COMPOSE_APP_PORT="3000"
-```
-
-2. In a production setting, you might want to enable backups for the database. This can be done by setting the `COMPOSE_PROFILES` environment variable to `production`.
+1. In a production setting, you might want to enable backups for the database. This can be done by setting the `COMPOSE_PROFILES` environment variable to `production`.
 
 ```bash
 COMPOSE_PROFILES="production"
 ```
 
-3. The `COMPOSE_DATABASE_BACKUP_PATH` environment variable can be used to customize the path where the database backups are stored.
+2. The `COMPOSE_DATABASE_BACKUP_PATH` environment variable can be used to customize the path where the database backups are stored.
 
 ```bash
 COMPOSE_DATABASE_BACKUP_PATH="$HOME/backup"

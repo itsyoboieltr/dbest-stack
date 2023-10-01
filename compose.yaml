@@ -10,23 +10,18 @@ services:
     ports:
       - ${COMPOSE_APP_PORT:-3000}:3000
     environment:
-      DATABASE_HOST: ${DATABASE_HOST:-database}
-      DATABASE_PORT: ${DATABASE_PORT:-5432}
-      DATABASE_USER: ${DATABASE_USER:-postgres}
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-postgres}
-      DATABASE_NAME: ${DATABASE_NAME:-postgres}
-      DATABASE_SSL: ${DATABASE_SSL:-false}
+      DATABASE_URL: ${DATABASE_URL}
       VITE_HOST_URL: ${VITE_HOST_URL:-http://localhost:3000}
 
   database:
     image: postgres:16-alpine
     restart: always
     ports:
-      - ${DATABASE_PORT:-5432}:5432
+      - ${COMPOSE_DATABASE_PORT:-5432}:5432
     environment:
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-postgres}
-      POSTGRES_USER: ${DATABASE_USER:-postgres}
-      POSTGRES_DATABASE: ${DATABASE_NAME:-postgres}
+      POSTGRES_USER: ${COMPOSE_DATABASE_USER}
+      POSTGRES_PASSWORD: ${COMPOSE_DATABASE_PASSWORD}
+      POSTGRES_DATABASE: ${COMPOSE_DATABASE_NAME}
     volumes:
       - database:/var/lib/postgresql/data
 

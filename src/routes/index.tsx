@@ -25,7 +25,7 @@ export default function Home() {
   }));
 
   return (
-    <div class={'text-center mx-auto text-gray-700 p-4'}>
+    <div class={'mx-auto p-4 text-center text-gray-700'}>
       <Show when={helloQuery.data}>
         {(helloList) => (
           <For each={helloList()}>
@@ -40,7 +40,7 @@ export default function Home() {
       <br />
       <div class={'flex flex-row justify-center gap-4'}>
         <input
-          class={'border-2 border-black rounded px-2 py-1'}
+          class={'rounded border-2 border-black px-2 py-1'}
           type={'text'}
           value={data()}
           onInput={({ currentTarget: { value } }) => setData(value)}
@@ -51,7 +51,7 @@ export default function Home() {
         />
         <button
           class={
-            'border-2 border-black rounded px-4 bg-gray-300 hover:bg-gray-400 active:bg-gray-400 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all'
+            'rounded border-2 border-black bg-gray-300 px-4 transition-all hover:bg-gray-400 active:bg-gray-400 disabled:cursor-not-allowed disabled:bg-gray-400'
           }
           disabled={helloAdd.isPending || !data()}
           onClick={() => helloAdd.mutate(data())}>

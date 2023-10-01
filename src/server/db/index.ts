@@ -4,7 +4,7 @@ import postgres from 'postgres';
 import * as schema from './schemas';
 import { serverEnv } from '../../utils/env/server';
 
-const client = postgres(serverEnv.database.url);
+const client = postgres(serverEnv.DATABASE_URL);
 
 export const db = drizzle(client, { schema, logger: true });
 
