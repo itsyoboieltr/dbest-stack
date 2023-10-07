@@ -8,9 +8,9 @@ const client = postgres(serverEnv.DATABASE_URL);
 
 export const db = drizzle(client, { schema, logger: true });
 
-const count = (
-  await db.select({ count: sql<number>`count(id)::int` }).from(schema.hello)
-)[0].count;
+const [{ count }] = await db
+  .select({ count: sql<number>`count(id)::int` })
+  .from(schema.hello);
 
 if (!count)
   await db.insert(schema.hello).values({ data: 'Hello from the DBEST stack!' });

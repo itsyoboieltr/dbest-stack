@@ -8,7 +8,7 @@ import {
 } from '~/server/db/schemas';
 
 export default new Elysia({ prefix: '/hello' })
-  .get('', async () => await db.query.hello.findMany())
+  .get('', async () => await db.select().from(hello))
   .post('', async ({ body }) => await db.insert(hello).values(body), {
     body: helloInsertSchema,
   })

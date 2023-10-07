@@ -9,7 +9,7 @@ export const hello = pgTable('Hello', {
 });
 
 const insertSchema = createInsertSchema(hello, {
-  data: Type.String({ minLength: 1 }),
+  data: Type.String({ minLength: 1, default: '' }),
 });
 export const helloInsertSchema = Type.Omit(insertSchema, ['id']);
 export type HelloInsert = typeof helloInsertSchema.static;

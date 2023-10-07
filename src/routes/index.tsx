@@ -1,10 +1,14 @@
+import { For, Show } from 'solid-js';
+import { createStore } from 'solid-js/store';
 import { createMutation, createQuery } from '@tanstack/solid-query';
-import { For, Show, createSignal } from 'solid-js';
 import { app } from '~/root';
 import Hello from '~/components/hello';
+import { Value } from '@sinclair/typebox/value';
+import { helloInsertSchema } from '~/server/db/schemas';
+import { validate } from '~/utils';
 
 export default function Home() {
-  const [data, setData] = createSignal('');
+  const [hello, setHello] = createStore(Value.Create(helloInsertSchema));
 
   const helloQuery = createQuery(() => ({
     queryKey: ['hello'],
@@ -16,12 +20,11 @@ export default function Home() {
   }));
 
   const helloAdd = createMutation(() => ({
-    mutationFn: async (data: string) => {
-      const res = await app.api.hello.post({ data });
+    mutationFn: async () => {
+      const res = await app.api.hello.post(hello);
       if (res.error) throw res.error;
-      return res.data;
     },
-    onSuccess: () => setData(''),
+    onSuccess: () => setHello(Value.Create(helloInsertSchema)),
   }));
 
   return (
@@ -42,19 +45,23 @@ export default function Home() {
         <input
           class={'rounded border-2 border-black px-2 py-1'}
           type={'text'}
-          value={data()}
-          onInput={({ currentTarget: { value } }) => setData(value)}
+          value={hello.data}
+          onInput={({ currentTarget: { value: data } }) => setHello({ data })}
           onKeyUp={({ key }) => {
-            if (key === 'Enter' && !helloAdd.isPending && data())
-              helloAdd.mutate(data());
+            if (
+              key === 'Enter' &&
+              !helloAdd.isPending &&
+              validate(helloInsertSchema, hello)
+            )
+              helloAdd.mutate();
           }}
         />
         <button
           class={
             'rounded border-2 border-black bg-gray-300 px-4 transition-all hover:bg-gray-400 active:bg-gray-400 disabled:cursor-not-allowed disabled:bg-gray-400'
           }
-          disabled={helloAdd.isPending || !data()}
-          onClick={() => helloAdd.mutate(data())}>
+          disabled={helloAdd.isPending || !validate(helloInsertSchema, hello)}
+          onClick={() => helloAdd.mutate()}>
           Submit
         </button>
       </div>

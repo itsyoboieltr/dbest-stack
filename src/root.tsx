@@ -25,7 +25,13 @@ export const app = edenTreaty<App>(clientEnv.HOST_URL);
 
 export default function Root() {
   const queryClient = new QueryClient({
-    defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false } },
+    defaultOptions: {
+      queries: {
+        retry: false,
+        refetchOnWindowFocus: false,
+        placeholderData: (previousData: unknown) => previousData,
+      },
+    },
     mutationCache: new MutationCache({
       onSuccess: async () => {
         await queryClient.invalidateQueries();

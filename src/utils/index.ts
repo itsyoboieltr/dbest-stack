@@ -21,3 +21,8 @@ export const parse = <T extends TSchema>(schema: T, value: unknown) => {
     throw new Error(errorsString);
   }
 };
+
+export const validate = <T extends TSchema>(schema: T, value: unknown) => {
+  const validator = TypeCompiler.Compile(schema);
+  return validator.Check(value);
+};
