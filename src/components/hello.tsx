@@ -9,7 +9,7 @@ interface HelloProps {
 export default function Hello(props: HelloProps) {
   const helloDelete = createMutation(() => ({
     mutationFn: async () => {
-      const res = await app.api.hello[props.id].delete();
+      const res = await app.api.hello[props.id]!.delete();
       if (res.error) throw res.error;
     },
   }));

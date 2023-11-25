@@ -4,7 +4,7 @@ import { parse } from '~/utils';
 const serverEnvSchema = Type.Object({
   DATABASE_URL: Type.String({
     minLength: 1,
-    error: 'DATABASE_URL server environment variable is not set!',
+    error: 'Server environment variable is not set!',
   }),
 });
 

@@ -18,7 +18,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/solid-query';
 import { edenTreaty } from '@elysiajs/eden';
-import type { App } from './server/api';
+import type { App } from './server/app';
 import { clientEnv } from './utils/env/client';
 
 export const app = edenTreaty<App>(clientEnv.HOST_URL);

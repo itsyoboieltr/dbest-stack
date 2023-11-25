@@ -1,11 +1,7 @@
 import { eq } from 'drizzle-orm';
 import { Elysia, t } from 'elysia';
 import { db } from '~/server/db';
-import {
-  hello,
-  helloInsertSchema,
-  helloSelectSchema,
-} from '~/server/db/schemas';
+import { hello, helloInsertSchema, helloSelectSchema } from './schema';
 
 export default new Elysia({ prefix: '/hello' })
   .get('', async () => await db.select().from(hello))

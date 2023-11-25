@@ -3,7 +3,7 @@ import { varchar, pgTable } from 'drizzle-orm/pg-core';
 import { createInsertSchema, createSelectSchema } from 'drizzle-typebox';
 import { Type } from '@sinclair/typebox';
 
-export const hello = pgTable('Hello', {
+export const hello = pgTable('hello', {
   id: varchar('id').primaryKey().$defaultFn(createId),
   data: varchar('data').notNull(),
 });

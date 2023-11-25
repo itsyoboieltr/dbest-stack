@@ -4,7 +4,7 @@ import { createMutation, createQuery } from '@tanstack/solid-query';
 import { app } from '~/root';
 import Hello from '~/components/hello';
 import { Value } from '@sinclair/typebox/value';
-import { helloInsertSchema } from '~/server/db/schemas';
+import { helloInsertSchema } from '~/server/routes/hello/schema';
 import { validate } from '~/utils';
 
 export default function Home() {

@@ -1,5 +1,5 @@
 import { APIEvent } from 'solid-start';
-import { app } from '~/server/api';
+import { app } from '~/server/app';
 
 const handler = async (event: APIEvent) => await app.handle(event.request);
 

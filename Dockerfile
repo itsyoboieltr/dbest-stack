@@ -1,6 +1,6 @@
 FROM oven/bun:latest
 
-ENV NODE_ENV production
+ARG VITE_HOST_URL
 
 WORKDIR /app
 COPY . .

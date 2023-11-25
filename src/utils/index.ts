@@ -1,28 +1,31 @@
 import { TSchema } from '@sinclair/typebox';
-import { TypeCompiler } from '@sinclair/typebox/compiler';
+import { getSchemaValidator } from 'elysia';
 
 export const parse = <T extends TSchema>(schema: T, value: unknown) => {
-  const validator = TypeCompiler.Compile(schema);
+  const validator = getSchemaValidator(schema, { additionalProperties: false });
+  if (!validator) throw new Error('Invalid schema!');
   try {
-    const data = validator.Decode(value);
+    const data: T['static'] = validator.Decode(value);
     return data;
   } catch (error) {
-    const errorsArray = [...validator.Errors(value)].map((error) => {
-      return `\n ${
-        error.path.startsWith('/') ? error.path.slice(1) : error.path
+    const firstError = validator.Errors(value).First();
+    if (!firstError) throw error;
+    throw new Error(
+      `${
+        firstError.path.startsWith('/')
+          ? firstError.path.slice(1)
+          : firstError.path
       }: ${
-        typeof error.schema.error === 'string'
-          ? error.schema.error
-          : error.message
-      }`;
-    });
-    const uniqueErrorsArray = [...new Set(errorsArray)];
-    const errorsString = uniqueErrorsArray.join('\n');
-    throw new Error(errorsString);
+        typeof firstError.schema.error === 'string'
+          ? firstError.schema.error
+          : firstError.message
+      }`,
+    );
   }
 };
 
 export const validate = <T extends TSchema>(schema: T, value: unknown) => {
-  const validator = TypeCompiler.Compile(schema);
+  const validator = getSchemaValidator(schema, { additionalProperties: false });
+  if (!validator) throw new Error('Invalid schema!');
   return validator.Check(value);
 };

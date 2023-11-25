@@ -8,6 +8,12 @@
     "jsxImportSource": "solid-js",
     "jsx": "preserve",
     "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "noUncheckedIndexedAccess": true,
     "baseUrl": "./",
     "paths": {
       "~/*": ["./src/*"]

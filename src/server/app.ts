@@ -1,5 +1,5 @@
 import { Elysia } from 'elysia';
-import hello from './routes/hello';
+import hello from './routes/hello/route';
 
 export const app = new Elysia({ prefix: '/api' }).use(hello);
 
