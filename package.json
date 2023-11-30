@@ -59,6 +59,8 @@
       "plugin:drizzle/recommended"
     ],
     "rules": {
+      "prefer-const": "off",
+      "@typescript-eslint/no-explicit-any": "off",
       "import/newline-after-import": [
         "warn",
         {
