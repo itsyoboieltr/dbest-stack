@@ -1,4 +1,10 @@
 // @refresh reload
+import { edenTreaty } from '@elysiajs/eden';
+import {
+  MutationCache,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/solid-query';
 import { Suspense } from 'solid-js';
 import {
   Body,
@@ -12,12 +18,6 @@ import {
   Title,
 } from 'solid-start';
 import './root.css';
-import {
-  MutationCache,
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/solid-query';
-import { edenTreaty } from '@elysiajs/eden';
 import type { App } from './server/app';
 import { clientEnv } from './utils/env/client';
 

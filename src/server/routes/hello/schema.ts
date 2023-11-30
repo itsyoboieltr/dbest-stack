@@ -1,11 +1,11 @@
 import { createId } from '@paralleldrive/cuid2';
-import { varchar, pgTable } from 'drizzle-orm/pg-core';
-import { createInsertSchema, createSelectSchema } from 'drizzle-typebox';
 import { Type } from '@sinclair/typebox';
+import { pgTable, text } from 'drizzle-orm/pg-core';
+import { createInsertSchema, createSelectSchema } from 'drizzle-typebox';
 
 export const hello = pgTable('hello', {
-  id: varchar('id').primaryKey().$defaultFn(createId),
-  data: varchar('data').notNull(),
+  id: text('id').primaryKey().$defaultFn(createId),
+  data: text('data').notNull(),
 });
 
 const insertSchema = createInsertSchema(hello, {
