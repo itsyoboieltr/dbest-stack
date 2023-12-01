@@ -10,17 +10,19 @@ export const parse = <T extends TSchema>(schema: T, value: unknown) => {
   } catch (error) {
     const firstError = validator.Errors(value).First();
     if (!firstError) throw error;
-    throw new Error(
-      `${
-        firstError.path.startsWith('/')
-          ? firstError.path.slice(1)
-          : firstError.path
-      }: ${
-        typeof firstError.schema.error === 'string'
-          ? firstError.schema.error
-          : firstError.message
-      }`,
-    );
+    const path = firstError.path
+      ? firstError.path.startsWith('/')
+        ? `${firstError.path.slice(1)}: `
+        : `${firstError.path}: `
+      : '';
+    const message =
+      typeof firstError.schema.error === 'string'
+        ? firstError.schema.error
+        : firstError.message;
+    const anyOf = Array.isArray(firstError.schema.anyOf)
+      ? `: ${firstError.schema.anyOf.map((value) => value.const).join(' | ')}`
+      : '';
+    throw new Error(`${path}${message}${anyOf}`);
   }
 };
 
