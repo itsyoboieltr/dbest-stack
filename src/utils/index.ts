@@ -20,7 +20,10 @@ export const parse = <T extends TSchema>(schema: T, value: unknown) => {
         ? firstError.schema.error
         : firstError.message;
     const anyOf = Array.isArray(firstError.schema.anyOf)
-      ? `: ${firstError.schema.anyOf.map((value) => value.const).join(' | ')}`
+      ? `: ${firstError.schema.anyOf
+          .map((value) => value.const)
+          .filter(Boolean)
+          .join(' | ')}`
       : '';
     throw new Error(`${path}${message}${anyOf}`);
   }
