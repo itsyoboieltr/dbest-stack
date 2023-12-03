@@ -1,5 +1,7 @@
 {
   "name": "dbest-stack",
+  "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "bun --bun solid-start dev",
     "build": "solid-start build",
@@ -7,7 +9,6 @@
     "push": "drizzle-kit push:pg",
     "studio": "drizzle-kit studio"
   },
-  "type": "module",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "6.13.1",
     "@typescript-eslint/parser": "6.13.1",
@@ -15,13 +16,13 @@
     "bun-types": "latest",
     "drizzle-kit": "0.20.6",
     "esbuild": "0.19.8",
-    "eslint": "8.54.0",
+    "eslint": "8.55.0",
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-drizzle": "0.2.1",
     "eslint-plugin-import": "2.29.0",
     "eslint-plugin-solid": "0.13.0",
     "pg": "8.11.3",
-    "postcss": "8.4.31",
+    "postcss": "8.4.32",
     "prettier": "3.1.0",
     "prettier-plugin-tailwindcss": "0.5.7",
     "solid-start-bun": "0.3.10",
@@ -35,12 +36,12 @@
     "@paralleldrive/cuid2": "2.2.2",
     "@solidjs/meta": "0.29.1",
     "@solidjs/router": "0.9.1",
-    "@tanstack/solid-query": "5.10.0",
+    "@tanstack/solid-query": "5.12.1",
     "drizzle-orm": "0.29.1",
     "drizzle-typebox": "0.1.1",
     "elysia": "0.7.29",
     "postgres": "3.4.3",
-    "solid-js": "1.8.6",
+    "solid-js": "1.8.7",
     "solid-start": "0.3.10"
   },
   "eslintConfig": {

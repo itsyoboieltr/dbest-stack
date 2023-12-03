@@ -41,11 +41,16 @@ VITE_HOST_URL="http://localhost:3000"
 COMPOSE_APP_PORT="3000"
 COMPOSE_DATABASE_PORT="5432"
 COMPOSE_DATABASE_USER="postgres"
-COMPOSE_DATABASE_PASSWORD="postgres"
+COMPOSE_DATABASE_PASSWORD=""
 COMPOSE_DATABASE_NAME="postgres"
 COMPOSE_DATABASE_BACKUP_PATH="$HOME/backup"
 COMPOSE_PROFILES="development"
 ```
+
+It is recommended to use a `.env` file to configure the environment variables.
+
+- For local development `.env.local` should be used, as this is ignored by docker compose.
+- For production deployment `.env` should be used, as this is used by docker compose.
 
 The most important thing to configure is the database connection, as running the app without a database connection will result in an instant error.
 

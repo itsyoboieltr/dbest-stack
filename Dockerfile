@@ -1,6 +1,10 @@
-FROM oven/bun:latest
+FROM imbios/bun-node:20-alpine
 
+ARG DATABASE_URL
 ARG VITE_HOST_URL
+
+ENV DATABASE_URL=$DATABASE_URL
+ENV VITE_HOST_URL=$VITE_HOST_URL
 
 WORKDIR /app
 COPY . .
@@ -10,4 +14,5 @@ RUN bun run build
 
 EXPOSE 3000
 
+ENTRYPOINT []
 CMD ["bun", "start"]

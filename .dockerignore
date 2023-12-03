@@ -4,6 +4,7 @@ dist
 node_modules
 .dockerignore
 .env
+.env.local
 .env.example
 .gitignore
 compose.yaml

@@ -1,10 +1,11 @@
 services:
   app:
-    image: app:latest
+    image: dbest/app:latest
     restart: always
     build:
       context: .
       args:
+        DATABASE_URL: ${DATABASE_URL}
         VITE_HOST_URL: ${VITE_HOST_URL:-http://localhost:3000}
     depends_on:
       - database
@@ -12,9 +13,6 @@ services:
       - database
     ports:
       - ${COMPOSE_APP_PORT:-3000}:3000
-    environment:
-      DATABASE_URL: ${DATABASE_URL}
-      VITE_HOST_URL: ${VITE_HOST_URL:-http://localhost:3000}
 
   database:
     image: postgres:16-alpine
