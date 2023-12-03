@@ -2,7 +2,7 @@
   "name": "dbest-stack",
   "scripts": {
     "dev": "bun --bun solid-start dev",
-    "build": "bun --bun solid-start build",
+    "build": "solid-start build",
     "start": "bun --bun solid-start start",
     "push": "drizzle-kit push:pg",
     "studio": "drizzle-kit studio"
@@ -25,9 +25,10 @@
     "prettier": "3.1.0",
     "prettier-plugin-tailwindcss": "0.5.7",
     "solid-start-bun": "0.3.10",
+    "solid-start-node": "0.3.10",
     "tailwindcss": "3.3.5",
     "typescript": "5.3.2",
-    "vite": "5.0.4"
+    "vite": "4.4.9"
   },
   "dependencies": {
     "@elysiajs/eden": "0.7.4",
