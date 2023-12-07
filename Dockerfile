@@ -1,4 +1,4 @@
-FROM imbios/bun-node:20-alpine
+FROM oven/bun:latest
 
 ARG DATABASE_URL
 ARG VITE_HOST_URL
