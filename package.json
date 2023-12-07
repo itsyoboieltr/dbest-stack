@@ -28,13 +28,13 @@
     "solid-start-bun": "0.3.10",
     "tailwindcss": "3.3.6",
     "typescript": "5.3.3",
-    "vite": "5.0.6"
+    "vite": "4.4.9"
   },
   "dependencies": {
     "@elysiajs/eden": "0.7.6",
     "@paralleldrive/cuid2": "2.2.2",
     "@solidjs/meta": "0.29.1",
-    "@solidjs/router": "0.10.0",
+    "@solidjs/router": "0.9.1",
     "@tanstack/solid-query": "5.12.1",
     "drizzle-orm": "0.29.1",
     "drizzle-typebox": "0.1.1",

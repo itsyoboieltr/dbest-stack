@@ -14,5 +14,4 @@ RUN bun run build
 
 EXPOSE 3000
 
-ENTRYPOINT []
 CMD ["bun", "start"]
