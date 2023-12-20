@@ -1,4 +1,11 @@
-# DBEST stack
+
+<p align="center">
+  <img src="https://github.com/itsyoboieltr/dbest-stack/assets/72046715/b04f7074-80e7-4af8-bdcd-5ce532cca213" width="250" alt="DBEST stack">
+</p>
+
+<h1 align="center">
+  DBEST stack
+</h1>
 
 The `DBEST` (DrizzleORM, Bun, ElysiaJS, SolidStart, Tailwind CSS) stack is a bun-based 🔥 `BLAZINGLY FAST` 🔥 full-stack `100% type-safe` web development solution that provides `everything` you need to build a `production-ready` web app based on the performant and scalable SolidStart meta-framework. It consists of:
 
