@@ -1,5 +1,5 @@
 import { defineConfig } from '@solidjs/start/config';
 
 export default defineConfig({
-  start: { server: { preset: 'bun' } },
+  start: { server: { preset: 'bun' }, ssr: false },
 });
