@@ -1,5 +1,5 @@
 import { createMutation } from '@tanstack/solid-query';
-import { app } from '~/root';
+import { app } from '~/app';
 
 interface HelloProps {
   id: string;

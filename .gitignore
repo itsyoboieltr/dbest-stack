@@ -2,6 +2,7 @@ dist
 .solid
 .output
 .vercel
+.vinxi
 .netlify
 netlify
 
@@ -18,6 +19,7 @@ netlify
 .classpath
 *.launch
 .settings/
+.vscode
 
 # Temp
 gitignore

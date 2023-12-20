@@ -1,6 +1,5 @@
-import solid from 'solid-start/vite';
-import { defineConfig } from 'vite';
+import { defineConfig } from '@solidjs/start/config';
 
 export default defineConfig({
-  plugins: [solid()],
+  start: { server: { preset: 'bun' } },
 });

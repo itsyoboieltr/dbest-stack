@@ -2,8 +2,8 @@ import { Value } from '@sinclair/typebox/value';
 import { createMutation, createQuery } from '@tanstack/solid-query';
 import { For, Show } from 'solid-js';
 import { createStore } from 'solid-js/store';
-import Hello from '~/components/hello';
-import { app } from '~/root';
+import { app } from '~/app';
+import Hello from '~/components/Hello';
 import { helloInsertSchema } from '~/server/routes/hello/schema';
 import { validate } from '~/utils';
 
