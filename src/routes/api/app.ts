@@ -1,0 +1,6 @@
+import { Elysia } from 'elysia';
+import { helloRoute } from './hello';
+
+export const app = new Elysia({ prefix: '/api' }).use(helloRoute);
+
+export type App = typeof app;

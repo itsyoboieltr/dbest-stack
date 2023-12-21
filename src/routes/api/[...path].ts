@@ -1,5 +1,5 @@
 import { type APIEvent } from '@solidjs/start/server/types';
-import { app } from '~/server/app';
+import { app } from '~/routes/api/app';
 
 const handler = async (event: APIEvent) => await app.handle(event.request);
 

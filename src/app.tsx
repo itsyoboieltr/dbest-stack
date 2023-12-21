@@ -8,7 +8,7 @@ import {
 } from '@tanstack/solid-query';
 import { edenTreaty } from '@elysiajs/eden';
 import { clientEnv } from '~/utils/env/client';
-import type { App } from './server/app';
+import type { App } from './routes/api/app';
 import './app.css';
 
 export const app = edenTreaty<App>(clientEnv.HOST_URL);

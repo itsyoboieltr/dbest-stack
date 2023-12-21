@@ -4,7 +4,7 @@ import { For, Show } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { app } from '~/app';
 import Hello from '~/components/Hello';
-import { helloInsertSchema } from '~/server/routes/hello/schema';
+import { helloInsertSchema } from '~/routes/api/hello/schema';
 import { validate } from '~/utils';
 
 export default function Home() {

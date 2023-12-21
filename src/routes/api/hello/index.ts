@@ -1,9 +1,9 @@
 import { eq } from 'drizzle-orm';
 import { Elysia, t } from 'elysia';
-import { db } from '~/server/db';
+import { db } from '~/routes/api/db';
 import { hello, helloInsertSchema, helloSelectSchema } from './schema';
 
-export default new Elysia({ prefix: '/hello' })
+export const helloRoute = new Elysia({ prefix: '/hello' })
   .get('', async () => await db.select().from(hello))
   .post('', async ({ body }) => await db.insert(hello).values(body), {
     body: helloInsertSchema,
