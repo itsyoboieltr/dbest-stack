@@ -1,5 +1,4 @@
-import { TSchema } from '@sinclair/typebox';
-import { getSchemaValidator } from 'elysia';
+import { getSchemaValidator, TSchema } from 'elysia';
 
 export const parse = <T extends TSchema>(schema: T, value: unknown) => {
   const validator = getSchemaValidator(schema, { additionalProperties: false });

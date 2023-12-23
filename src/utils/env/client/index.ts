@@ -1,8 +1,8 @@
-import { Type } from '@sinclair/typebox';
+import { t } from 'elysia';
 import { parse } from '~/utils';
 
-const clientEnvSchema = Type.Object({
-  HOST_URL: Type.String({ minLength: 1 }),
+const clientEnvSchema = t.Object({
+  HOST_URL: t.String({ minLength: 1 }),
 });
 
 export const clientEnv = parse(clientEnvSchema, {

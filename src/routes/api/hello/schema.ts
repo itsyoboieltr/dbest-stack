@@ -1,5 +1,5 @@
 import { createId } from '@paralleldrive/cuid2';
-import { Type } from '@sinclair/typebox';
+import { t } from 'elysia';
 import { pgTable, text } from 'drizzle-orm/pg-core';
 import { createInsertSchema, createSelectSchema } from 'drizzle-typebox';
 
@@ -9,9 +9,9 @@ export const hello = pgTable('hello', {
 });
 
 const insertSchema = createInsertSchema(hello, {
-  data: Type.String({ minLength: 1, default: '' }),
+  data: t.String({ minLength: 1, default: '' }),
 });
-export const helloInsertSchema = Type.Omit(insertSchema, ['id']);
+export const helloInsertSchema = t.Omit(insertSchema, ['id']);
 export type HelloInsert = typeof helloInsertSchema.static;
 
 export const helloSelectSchema = createSelectSchema(hello);

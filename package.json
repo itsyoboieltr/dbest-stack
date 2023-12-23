@@ -13,7 +13,7 @@
     "@typescript-eslint/eslint-plugin": "6.15.0",
     "@typescript-eslint/parser": "6.15.0",
     "autoprefixer": "10.4.16",
-    "bun-types": "latest",
+    "@types/bun": "latest",
     "drizzle-kit": "0.20.7",
     "eslint": "8.56.0",
     "eslint-import-resolver-typescript": "3.6.1",
@@ -28,17 +28,17 @@
     "typescript": "5.3.3"
   },
   "dependencies": {
-    "@elysiajs/eden": "0.7.7",
+    "@elysiajs/eden": "0.8.0",
     "@paralleldrive/cuid2": "2.2.2",
     "@solidjs/router": "0.10.5",
-    "@solidjs/start": "0.4.1",
-    "solid-js": "1.8.7",
-    "vinxi": "0.0.52",
+    "@solidjs/start": "0.4.2",
     "@tanstack/solid-query": "5.14.2",
     "drizzle-orm": "0.29.1",
     "drizzle-typebox": "0.1.1",
-    "elysia": "0.7.30",
-    "postgres": "3.4.3"
+    "elysia": "0.8.2",
+    "postgres": "3.4.3",
+    "solid-js": "1.8.7",
+    "vinxi": "0.0.54"
   },
   "eslintConfig": {
     "root": true,

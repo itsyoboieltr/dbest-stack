@@ -1,4 +1,4 @@
-import { Value } from '@sinclair/typebox/value';
+import { Create } from '@sinclair/typebox/value';
 import { createMutation, createQuery } from '@tanstack/solid-query';
 import { For, Show } from 'solid-js';
 import { createStore } from 'solid-js/store';
@@ -8,7 +8,7 @@ import { helloInsertSchema } from '~/routes/api/hello/schema';
 import { validate } from '~/utils';
 
 export default function Home() {
-  const [hello, setHello] = createStore(Value.Create(helloInsertSchema));
+  const [hello, setHello] = createStore(Create(helloInsertSchema));
 
   const helloQuery = createQuery(() => ({
     queryKey: ['hello'],
@@ -24,7 +24,7 @@ export default function Home() {
       const res = await app.api.hello.post(hello);
       if (res.error) throw res.error;
     },
-    onSuccess: () => setHello(Value.Create(helloInsertSchema)),
+    onSuccess: () => setHello(Create(helloInsertSchema)),
   }));
 
   return (
