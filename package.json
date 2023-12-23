@@ -35,7 +35,7 @@
     "@tanstack/solid-query": "5.14.2",
     "drizzle-orm": "0.29.1",
     "drizzle-typebox": "0.1.1",
-    "elysia": "0.8.2",
+    "elysia": "0.8.3",
     "postgres": "3.4.3",
     "solid-js": "1.8.7",
     "vinxi": "0.0.54"
