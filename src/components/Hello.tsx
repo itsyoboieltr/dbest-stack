@@ -1,5 +1,6 @@
 import { createMutation } from '@tanstack/solid-query';
 import { app } from '~/app';
+import { handleEden } from '~/utils';
 
 interface HelloProps {
   id: string;
@@ -8,10 +9,7 @@ interface HelloProps {
 
 export default function Hello(props: HelloProps) {
   const helloDelete = createMutation(() => ({
-    mutationFn: async () => {
-      const res = await app.api.hello[props.id]!.delete();
-      if (res.error) throw res.error;
-    },
+    mutationFn: async () => handleEden(await app.api.hello[props.id]!.delete()),
   }));
   return (
     <div class={'flex flex-row justify-center gap-4'}>

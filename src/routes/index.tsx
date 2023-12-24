@@ -5,25 +5,18 @@ import { createStore } from 'solid-js/store';
 import { app } from '~/app';
 import Hello from '~/components/Hello';
 import { helloInsertSchema } from '~/routes/api/hello/schema';
-import { validate } from '~/utils';
+import { handleEden, validate } from '~/utils';
 
 export default function Home() {
   const [hello, setHello] = createStore(Create(helloInsertSchema));
 
   const helloQuery = createQuery(() => ({
     queryKey: ['hello'],
-    queryFn: async () => {
-      const res = await app.api.hello.get();
-      if (res.error) throw res.error;
-      return res.data;
-    },
+    queryFn: async () => handleEden(await app.api.hello.get()),
   }));
 
   const helloAdd = createMutation(() => ({
-    mutationFn: async () => {
-      const res = await app.api.hello.post(hello);
-      if (res.error) throw res.error;
-    },
+    mutationFn: async () => handleEden(await app.api.hello.post(hello)),
     onSuccess: () => setHello(Create(helloInsertSchema)),
   }));
 

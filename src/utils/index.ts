@@ -1,3 +1,4 @@
+import { EdenFetchError } from '@elysiajs/eden/src/errors';
 import { getSchemaValidator, TSchema } from 'elysia';
 
 export const parse = <T extends TSchema>(schema: T, value: unknown) => {
@@ -33,3 +34,23 @@ export const validate = <T extends TSchema>(schema: T, value: unknown) => {
   if (!validator) throw new Error('Invalid schema!');
   return validator.Check(value);
 };
+
+export function handleEden<T>(
+  response: (
+    | {
+        data: T;
+        error: null;
+      }
+    | {
+        data: null;
+        error: EdenFetchError<number, string>;
+      }
+  ) & {
+    status: number;
+    response: Response;
+    headers: Record<string, string>;
+  },
+): T {
+  if (response.error) throw response.error;
+  return response.data;
+}
