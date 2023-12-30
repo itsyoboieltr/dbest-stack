@@ -38,7 +38,7 @@
     "elysia": "0.8.6",
     "postgres": "3.4.3",
     "solid-js": "1.8.7",
-    "vinxi": "0.0.60"
+    "vinxi": "0.0.61"
   },
   "eslintConfig": {
     "root": true,
