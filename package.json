@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "bun --bun vinxi dev",
-    "build": "bun --bun vinxi build",
+    "build": "NODE_ENV=production bun --bun vinxi build",
     "start": "bun ./.output/server/index.mjs",
     "push": "drizzle-kit push:pg",
     "studio": "drizzle-kit studio"
@@ -21,7 +21,7 @@
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-solid": "0.13.1",
     "pg": "8.11.3",
-    "postcss": "8.4.32",
+    "postcss": "8.4.33",
     "prettier": "3.1.1",
     "prettier-plugin-tailwindcss": "0.5.10",
     "tailwindcss": "3.4.0",
@@ -30,15 +30,15 @@
   "dependencies": {
     "@elysiajs/eden": "0.8.0",
     "@paralleldrive/cuid2": "2.2.2",
-    "@solidjs/router": "0.10.5",
+    "@solidjs/router": "0.10.6",
     "@solidjs/start": "0.4.2",
-    "@tanstack/solid-query": "5.17.0",
-    "drizzle-orm": "0.29.2",
+    "@tanstack/solid-query": "5.17.1",
+    "drizzle-orm": "0.29.3",
     "drizzle-typebox": "0.1.1",
     "elysia": "0.8.8",
     "postgres": "3.4.3",
-    "solid-js": "1.8.7",
-    "vinxi": "0.0.62"
+    "solid-js": "1.8.8",
+    "vinxi": "0.1.1"
   },
   "eslintConfig": {
     "root": true,
