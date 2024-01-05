@@ -11,3 +11,5 @@ compose.yaml
 Dockerfile
 LICENSE
 README.md
+.DS_Store
+.git
