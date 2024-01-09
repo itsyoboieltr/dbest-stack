@@ -1,4 +1,3 @@
-
 <p align="center">
   <img src="https://github.com/itsyoboieltr/dbest-stack/assets/72046715/b04f7074-80e7-4af8-bdcd-5ce532cca213" width="250" alt="DBEST stack">
 </p>
@@ -43,13 +42,13 @@ Once the project is created and the dependencies are installed, the environment 
 [.env.example](.env.example)
 
 ```bash
-DATABASE_URL=""
+DATABASE_URL="postgresql://postgres:xxxx@database:5432/dbest"
 VITE_HOST_URL="http://localhost:3000"
 COMPOSE_APP_PORT="3000"
 COMPOSE_DATABASE_PORT="5432"
 COMPOSE_DATABASE_USER="postgres"
-COMPOSE_DATABASE_PASSWORD=""
-COMPOSE_DATABASE_NAME="postgres"
+COMPOSE_DATABASE_PASSWORD="xxxx"
+COMPOSE_DATABASE_NAME="dbest"
 COMPOSE_DATABASE_BACKUP_PATH="$HOME/backup"
 COMPOSE_PROFILES="development"
 ```
