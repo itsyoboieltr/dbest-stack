@@ -1,38 +1,31 @@
-import { EdenFetchError } from '@elysiajs/eden/src/errors';
-import { getSchemaValidator, TSchema } from 'elysia';
+import type { EdenFetchError } from '@elysiajs/eden/src/errors';
+import type { TSchema, Static } from '@sinclair/typebox/type';
+import { Check } from '@sinclair/typebox/value';
+import {
+  Errors,
+  SetErrorFunction,
+  DefaultErrorFunction,
+} from '@sinclair/typebox/errors';
 
-export const parse = <T extends TSchema>(schema: T, value: unknown) => {
-  const validator = getSchemaValidator(schema, { additionalProperties: false });
-  if (!validator) throw new Error('Invalid schema!');
-  try {
-    const data: T['static'] = validator.Decode(value);
-    return data;
-  } catch (error) {
-    const firstError = validator.Errors(value).First();
-    if (!firstError) throw error;
-    const path = firstError.path
-      ? firstError.path.startsWith('/')
-        ? `${firstError.path.slice(1)}: `
-        : `${firstError.path}: `
-      : '';
-    const message =
-      typeof firstError.schema.error === 'string'
-        ? firstError.schema.error
-        : firstError.message;
-    const anyOf = Array.isArray(firstError.schema.anyOf)
-      ? `: ${firstError.schema.anyOf
-          .map((value) => value.const)
-          .filter(Boolean)
-          .join(' | ')}`
-      : '';
-    throw new Error(`${path}${message}${anyOf}`);
-  }
+SetErrorFunction((error) => {
+  if (typeof error.schema.error === 'string') return error.schema.error;
+  return DefaultErrorFunction(error);
+});
+
+export const parse = <T extends TSchema>(
+  schema: T,
+  value: unknown,
+): Static<T> => {
+  const check = Check(schema, value);
+  if (!check) throw new Error(Errors(schema, value).First()?.message);
+  return value;
 };
 
-export const validate = <T extends TSchema>(schema: T, value: unknown) => {
-  const validator = getSchemaValidator(schema, { additionalProperties: false });
-  if (!validator) throw new Error('Invalid schema!');
-  return validator.Check(value);
+export const validate = <T extends TSchema>(
+  schema: T,
+  value: unknown,
+): boolean => {
+  return Check(schema, value);
 };
 
 export function handleEden<T>(

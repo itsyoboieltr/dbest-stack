@@ -1,10 +1,10 @@
-import { t } from 'elysia';
+import { Object, String } from '@sinclair/typebox/type';
 import { parse } from '~/utils';
 
-const serverEnvSchema = t.Object({
-  DATABASE_URL: t.String({
+const serverEnvSchema = Object({
+  DATABASE_URL: String({
     minLength: 1,
-    error: 'Server environment variable is not set!',
+    error: 'DATABASE_URL server environment variable is not set!',
   }),
 });
 

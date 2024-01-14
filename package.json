@@ -20,7 +20,7 @@
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-solid": "0.13.1",
     "postcss": "8.4.33",
-    "prettier": "3.1.1",
+    "prettier": "3.2.2",
     "prettier-plugin-tailwindcss": "0.5.11",
     "tailwindcss": "3.4.1",
     "typescript": "5.3.3"
@@ -28,17 +28,17 @@
   "dependencies": {
     "@elysiajs/eden": "0.8.1",
     "@paralleldrive/cuid2": "2.2.2",
-    "@solidjs/router": "0.10.7",
-    "@solidjs/start": "0.4.5",
-    "@tanstack/solid-query": "5.17.9",
+    "@solidjs/router": "0.10.9",
+    "@solidjs/start": "0.4.9",
+    "@tanstack/solid-query": "5.17.10",
     "drizzle-orm": "0.29.3",
     "drizzle-typebox": "0.1.1",
-    "elysia": "0.8.8",
+    "elysia": "0.8.9",
     "postgres": "3.4.3",
-    "solid-js": "1.8.9",
-    "vinxi": "0.1.1",
+    "solid-js": "1.8.11",
+    "vinxi": "0.1.2",
     "pg": "8.11.3",
-    "drizzle-kit": "0.20.10"
+    "drizzle-kit": "0.20.12"
   },
   "eslintConfig": {
     "root": true,

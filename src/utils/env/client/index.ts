@@ -1,8 +1,11 @@
-import { t } from 'elysia';
+import { Object, String } from '@sinclair/typebox/type';
 import { parse } from '~/utils';
 
-const clientEnvSchema = t.Object({
-  HOST_URL: t.String({ minLength: 1 }),
+const clientEnvSchema = Object({
+  HOST_URL: String({
+    minLength: 1,
+    error: 'HOST_URL client environment variable is not set!',
+  }),
 });
 
 export const clientEnv = parse(clientEnvSchema, {
