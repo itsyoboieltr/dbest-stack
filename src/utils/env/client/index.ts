@@ -4,7 +4,7 @@ import { parse } from '~/utils';
 const clientEnvSchema = Object({
   HOST_URL: String({
     minLength: 1,
-    error: 'HOST_URL client environment variable is not set!',
+    error: 'VITE_HOST_URL client environment variable is not set!',
   }),
 });
 
