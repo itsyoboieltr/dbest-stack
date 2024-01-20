@@ -1,8 +1,8 @@
-import { Object, String } from '@sinclair/typebox/type';
+import { Type as t } from '@sinclair/typebox/type';
 import { parse } from '~/utils';
 
-const clientEnvSchema = Object({
-  HOST_URL: String({
+const clientEnvSchema = t.Object({
+  HOST_URL: t.String({
     minLength: 1,
     error: 'VITE_HOST_URL client environment variable is not set!',
   }),

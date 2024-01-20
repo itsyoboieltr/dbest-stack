@@ -1,8 +1,8 @@
-import { Object, String } from '@sinclair/typebox/type';
+import { Type as t } from '@sinclair/typebox/type';
 import { parse } from '~/utils';
 
-const serverEnvSchema = Object({
-  DATABASE_URL: String({
+const serverEnvSchema = t.Object({
+  DATABASE_URL: t.String({
     minLength: 1,
     error: 'DATABASE_URL server environment variable is not set!',
   }),

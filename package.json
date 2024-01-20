@@ -13,14 +13,14 @@
     "@types/bun": "latest",
     "@typescript-eslint/eslint-plugin": "6.19.0",
     "@typescript-eslint/parser": "6.19.0",
-    "autoprefixer": "10.4.16",
+    "autoprefixer": "10.4.17",
     "eslint": "8.56.0",
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-drizzle": "0.2.3",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-solid": "0.13.1",
     "postcss": "8.4.33",
-    "prettier": "3.2.2",
+    "prettier": "3.2.4",
     "prettier-plugin-tailwindcss": "0.5.11",
     "tailwindcss": "3.4.1",
     "typescript": "5.3.3"
@@ -30,7 +30,7 @@
     "@paralleldrive/cuid2": "2.2.2",
     "@solidjs/router": "0.10.9",
     "@solidjs/start": "0.4.10",
-    "@tanstack/solid-query": "5.17.15",
+    "@tanstack/solid-query": "5.17.19",
     "drizzle-orm": "0.29.3",
     "drizzle-typebox": "0.1.1",
     "elysia": "0.8.9",
@@ -39,64 +39,5 @@
     "vinxi": "0.1.4",
     "pg": "8.11.3",
     "drizzle-kit": "0.20.13"
-  },
-  "eslintConfig": {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint",
-      "import",
-      "solid",
-      "drizzle"
-    ],
-    "extends": [
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "plugin:import/typescript",
-      "plugin:solid/typescript",
-      "plugin:drizzle/recommended"
-    ],
-    "rules": {
-      "prefer-const": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-      "import/newline-after-import": [
-        "warn",
-        {
-          "count": 1
-        }
-      ],
-      "solid/no-array-handlers": "error",
-      "solid/prefer-show": "error",
-      "drizzle/enforce-delete-with-where": [
-        "error",
-        {
-          "drizzleObjectName": [
-            "db"
-          ]
-        }
-      ],
-      "drizzle/enforce-update-with-where": [
-        "error",
-        {
-          "drizzleObjectName": [
-            "db"
-          ]
-        }
-      ]
-    }
-  },
-  "prettier": {
-    "singleQuote": true,
-    "jsxSingleQuote": true,
-    "bracketSameLine": true,
-    "plugins": [
-      "prettier-plugin-tailwindcss"
-    ]
-  },
-  "postcss": {
-    "plugins": {
-      "tailwindcss": {},
-      "autoprefixer": {}
-    }
   }
 }
