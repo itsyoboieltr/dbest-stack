@@ -2,14 +2,14 @@ import { createMutation } from '@tanstack/solid-query';
 import { app } from '~/app';
 import { handleEden } from '~/utils';
 
-interface HelloProps {
+interface TodoProps {
   id: string;
   data: string;
 }
 
-export default function Hello(props: HelloProps) {
-  const helloDelete = createMutation(() => ({
-    mutationFn: async () => handleEden(await app.api.hello[props.id]!.delete()),
+export default function Todo(props: TodoProps) {
+  const todoDelete = createMutation(() => ({
+    mutationFn: async () => handleEden(await app.api.todo[props.id]!.delete()),
   }));
   return (
     <div class={'flex flex-row justify-center gap-4'}>
@@ -18,8 +18,8 @@ export default function Hello(props: HelloProps) {
         class={
           'rounded border-2 border-black bg-red-300 px-4 transition-all hover:bg-red-400 active:bg-red-400 disabled:cursor-not-allowed disabled:bg-red-400'
         }
-        disabled={helloDelete.isPending}
-        onClick={() => helloDelete.mutate()}>
+        disabled={todoDelete.isPending}
+        onClick={() => todoDelete.mutate()}>
         X
       </button>
     </div>

@@ -3,16 +3,16 @@ import { pgTable, text } from 'drizzle-orm/pg-core';
 import { createInsertSchema, createSelectSchema } from 'drizzle-typebox';
 import { Type as t } from '@sinclair/typebox/type';
 
-export const hello = pgTable('hello', {
+export const todo = pgTable('todo', {
   id: text('id').primaryKey().$defaultFn(createId),
   data: text('data').notNull(),
 });
 
-const insertSchema = createInsertSchema(hello, {
+const insertSchema = createInsertSchema(todo, {
   data: t.String({ minLength: 1, default: '' }),
 });
-export const helloInsertSchema = t.Omit(insertSchema, ['id']);
-export type HelloInsert = typeof helloInsertSchema.static;
+export const todoInsertSchema = t.Omit(insertSchema, ['id']);
+export type TodoInsert = typeof todoInsertSchema.static;
 
-export const helloSelectSchema = createSelectSchema(hello);
-export type HelloSelect = typeof helloSelectSchema.static;
+export const todoSelectSchema = createSelectSchema(todo);
+export type TodoSelect = typeof todoSelectSchema.static;
