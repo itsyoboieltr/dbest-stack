@@ -11,5 +11,5 @@ export const todoRoute = new Elysia({ prefix: '/todo' })
   .delete(
     '/:id',
     async ({ params }) => await db.delete(todo).where(eq(todo.id, params.id)),
-    { params: t.Pick(todoSelectSchema, ['id']) },
+    { params: t.Pick(todoSelectSchema, ['id']) }
   );
