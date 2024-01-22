@@ -6,11 +6,11 @@
   DBEST stack
 </h1>
 
-The `DBEST` (DrizzleORM, Bun, ElysiaJS, SolidStart, Tailwind CSS) stack is a bun-based 🔥 `BLAZINGLY FAST` 🔥 full-stack `100% type-safe` web development solution that provides `everything` you need to build a `production-ready` web app based on the performant and scalable SolidStart meta-framework. It consists of:
+The `DBEST` stack is a bun-based 🔥 `BLAZINGLY FAST` 🔥 full-stack `100% type-safe` web development solution that provides `everything` you need to build a `production-ready` web app based on the performant and scalable SolidStart meta-framework. It consists of:
 
-- [DrizzleORM](https://orm.drizzle.team)
+- [Drizzle](https://orm.drizzle.team)
 - [Bun](https://bun.sh)
-- [ElysiaJS](https://elysiajs.com)
+- [Elysia](https://elysiajs.com)
 - [SolidStart](https://start.solidjs.com/)
 - [Tailwind CSS](https://tailwindcss.com)
 
@@ -66,7 +66,7 @@ In case your database schema does not match the schema defined by `drizzle`, the
 bun push
 ```
 
-In addition, `drizzle studio` can be leveraged to connect to the database and browse, add, delete and update data based on the declared `drizzle schema`.
+In addition, `drizzle studio` can be used to connect to the database and browse, add, delete and update data based on the declared `drizzle schema`.
 
 ```bash
 bun studio
