@@ -4,15 +4,15 @@
   "type": "module",
   "scripts": {
     "dev": "bun --bun vinxi dev",
-    "build": "NODE_ENV=production bun --bun vinxi build",
+    "build": "bun --bun vinxi build",
     "start": "bun --bun vinxi start",
     "push": "drizzle-kit push:pg",
     "studio": "drizzle-kit studio"
   },
   "devDependencies": {
-    "@types/bun": "latest",
-    "@typescript-eslint/eslint-plugin": "6.19.0",
-    "@typescript-eslint/parser": "6.19.0",
+    "@types/bun": "1.0.4",
+    "@typescript-eslint/eslint-plugin": "6.19.1",
+    "@typescript-eslint/parser": "6.19.1",
     "autoprefixer": "10.4.17",
     "eslint": "8.56.0",
     "eslint-import-resolver-typescript": "3.6.1",
@@ -28,16 +28,16 @@
   "dependencies": {
     "@elysiajs/eden": "0.8.1",
     "@paralleldrive/cuid2": "2.2.2",
-    "@solidjs/router": "0.10.9",
-    "@solidjs/start": "0.4.10",
+    "@solidjs/router": "0.10.10",
+    "@solidjs/start": "0.4.11",
     "@tanstack/solid-query": "5.17.19",
+    "drizzle-kit": "0.20.13",
     "drizzle-orm": "0.29.3",
     "drizzle-typebox": "0.1.1",
-    "elysia": "0.8.9",
-    "postgres": "3.4.3",
-    "solid-js": "1.8.11",
-    "vinxi": "0.1.4",
+    "elysia": "0.8.14",
     "pg": "8.11.3",
-    "drizzle-kit": "0.20.13"
+    "postgres": "3.4.3",
+    "solid-js": "1.8.12",
+    "vinxi": "0.1.10"
   }
 }
