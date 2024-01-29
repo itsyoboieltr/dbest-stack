@@ -34,7 +34,7 @@
     "drizzle-kit": "0.20.13",
     "drizzle-orm": "0.29.3",
     "drizzle-typebox": "0.1.1",
-    "elysia": "0.8.14",
+    "elysia": "0.8.15",
     "pg": "8.11.3",
     "postgres": "3.4.3",
     "solid-js": "1.8.12",
