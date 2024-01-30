@@ -1,9 +1,9 @@
 import { createId } from '@paralleldrive/cuid2';
-import { pgTable, text } from 'drizzle-orm/pg-core';
+import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
 import { createInsertSchema, createSelectSchema } from 'drizzle-typebox';
 import { Type as t } from '@sinclair/typebox/type';
 
-export const todo = pgTable('todo', {
+export const todo = sqliteTable('todo', {
   id: text('id').primaryKey().$defaultFn(createId),
   data: text('data').notNull(),
 });
