@@ -9,35 +9,29 @@
     "push": "drizzle-kit push:pg",
     "studio": "drizzle-kit studio"
   },
-  "devDependencies": {
-    "@types/bun": "1.0.4",
-    "@typescript-eslint/eslint-plugin": "6.19.1",
-    "@typescript-eslint/parser": "6.19.1",
-    "autoprefixer": "10.4.17",
-    "eslint": "8.56.0",
-    "eslint-import-resolver-typescript": "3.6.1",
-    "eslint-plugin-drizzle": "0.2.3",
-    "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-solid": "0.13.1",
-    "postcss": "8.4.33",
-    "prettier": "3.2.4",
-    "prettier-plugin-tailwindcss": "0.5.11",
-    "tailwindcss": "3.4.1",
-    "typescript": "5.3.3"
-  },
   "dependencies": {
-    "@elysiajs/eden": "0.8.1",
-    "@paralleldrive/cuid2": "2.2.2",
-    "@solidjs/router": "0.10.10",
-    "@solidjs/start": "0.4.11",
-    "@tanstack/solid-query": "5.17.19",
-    "drizzle-kit": "0.20.13",
-    "drizzle-orm": "0.29.3",
-    "drizzle-typebox": "0.1.1",
-    "elysia": "0.8.15",
-    "pg": "8.11.3",
-    "postgres": "3.4.3",
-    "solid-js": "1.8.12",
-    "vinxi": "0.1.10"
+    "@elysiajs/eden": "^1.0.11",
+    "@paralleldrive/cuid2": "^2.2.2",
+    "@solidjs/meta": "^0.29.3",
+    "@solidjs/router": "^0.13.2",
+    "@solidjs/start": "^1.0.0-rc.0",
+    "@tanstack/solid-query": "^5.29.3",
+    "autoprefixer": "^10.4.14",
+    "drizzle-kit": "^0.20.14",
+    "drizzle-orm": "^0.30.8",
+    "drizzle-typebox": "^0.1.1",
+    "elysia": "^1.0.13",
+    "pg": "^8.11.5",
+    "postcss": "^8.4.26",
+    "postgres": "^3.4.4",
+    "solid-js": "^1.8.16",
+    "tailwindcss": "^3.4.3",
+    "vinxi": "^0.3.10"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.6.4"
   }
 }

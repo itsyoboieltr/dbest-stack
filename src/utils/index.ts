@@ -1,4 +1,4 @@
-import type { EdenFetchError } from '@elysiajs/eden/src/errors';
+import type { EdenFetchError } from '@elysiajs/eden/dist/errors';
 import type { TSchema, Static } from '@sinclair/typebox/type';
 import { Check } from '@sinclair/typebox/value';
 import {
