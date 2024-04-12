@@ -1,0 +1,48 @@
+services:
+  app:
+    image: dbest/app:latest
+    restart: always
+    build:
+      context: .
+      args:
+        DATABASE_URL: ${DATABASE_URL}
+        VITE_HOST_URL: ${VITE_HOST_URL:-http://localhost:3000}
+    depends_on:
+      - database
+    links:
+      - database
+    ports:
+      - ${COMPOSE_APP_PORT:-3000}:3000
+
+  database:
+    image: postgres:16-alpine
+    restart: always
+    ports:
+      - ${COMPOSE_DATABASE_PORT:-5432}:5432
+    environment:
+      POSTGRES_USER: ${COMPOSE_DATABASE_USER}
+      POSTGRES_PASSWORD: ${COMPOSE_DATABASE_PASSWORD}
+      POSTGRES_DB: ${COMPOSE_DATABASE_NAME}
+    volumes:
+      - database:/var/lib/postgresql/data
+
+  backup:
+    image: offen/docker-volume-backup:v2
+    restart: always
+    depends_on:
+      - database
+    links:
+      - database
+    environment:
+      BACKUP_LATEST_SYMLINK: backup-latest.tar.gz
+      BACKUP_CRON_EXPRESSION: 0 0 * * *
+      BACKUP_RETENTION_DAYS: 14
+    volumes:
+      - database:/backup:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${COMPOSE_DATABASE_BACKUP_PATH:-$HOME/backup}/${COMPOSE_PROJECT_NAME}:/archive
+    profiles:
+      - production
+
+volumes:
+  database:
