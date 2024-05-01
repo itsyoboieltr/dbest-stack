@@ -7,7 +7,7 @@ node_modules
 .env.local
 .env.example
 .gitignore
-compose.yaml
+docker-compose.yml
 Dockerfile
 LICENSE
 README.md
