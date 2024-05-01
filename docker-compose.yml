@@ -6,8 +6,8 @@ services:
       context: .
       args:
         PORT: ${PORT:-3000}
-        DATABASE_URL: postgresql://${DATABASE_USER:-postgres}:${DATABASE_PASSWORD:-example}@database:5432/${DATABASE_NAME:-dbest}
         VITE_HOST_URL: ${VITE_HOST_URL:-http://localhost:${PORT:-3000}}
+        DATABASE_URL: postgresql://${DATABASE_USER:-postgres}:${DATABASE_PASSWORD:-example}@database:5432/${DATABASE_NAME:-dbest}
     depends_on:
       - database
     ports:
