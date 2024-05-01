@@ -12,12 +12,12 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
-    "types": ["vinxi/client"],
+    "types": ["vinxi/client", "vite/client"],
     "isolatedModules": true,
     "noUncheckedIndexedAccess": true,
     "baseUrl": "./",
     "paths": {
-      "~/*": ["./src/*"]
-    }
-  }
+      "~/*": ["./src/*"],
+    },
+  },
 }

@@ -9,5 +9,5 @@ const serverEnvSchema = t.Object({
 });
 
 export const serverEnv = parse(serverEnvSchema, {
-  DATABASE_URL: process.env.DATABASE_URL,
+  DATABASE_URL: process.env.DATABASE_URL || 'memory://dbest',
 });

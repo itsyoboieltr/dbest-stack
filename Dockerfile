@@ -1,8 +1,10 @@
-FROM oven/bun:latest
+FROM imbios/bun-node:latest-iron-alpine
 
+ARG PORT
 ARG DATABASE_URL
 ARG VITE_HOST_URL
 
+ENV PORT=$PORT
 ENV DATABASE_URL=$DATABASE_URL
 ENV VITE_HOST_URL=$VITE_HOST_URL
 
@@ -12,6 +14,6 @@ COPY . .
 RUN bun i
 RUN bun run build
 
-EXPOSE 3000
+EXPOSE $PORT
 
 CMD ["bun", "start"]

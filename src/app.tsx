@@ -1,17 +1,18 @@
-// @refresh reload
+import { MetaProvider, Title } from '@solidjs/meta';
 import { Router } from '@solidjs/router';
-import { FileRoutes } from '@solidjs/start';
+import { FileRoutes } from '@solidjs/start/router';
+import { Suspense } from 'solid-js';
 import {
   MutationCache,
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/solid-query';
-import { edenTreaty } from '@elysiajs/eden';
+import { treaty } from '@elysiajs/eden';
 import { clientEnv } from '~/utils/env/client';
 import type { App } from './routes/api';
 import './app.css';
 
-export const app = edenTreaty<App>(clientEnv.HOST_URL);
+export const { api } = treaty<App>(clientEnv.HOST_URL);
 
 export default function App() {
   const queryClient = new QueryClient({
@@ -31,9 +32,12 @@ export default function App() {
   return (
     <Router
       root={(props) => (
-        <QueryClientProvider client={queryClient}>
-          {props.children}
-        </QueryClientProvider>
+        <MetaProvider>
+          <Title>DBEST Stack</Title>
+          <QueryClientProvider client={queryClient}>
+            <Suspense>{props.children}</Suspense>
+          </QueryClientProvider>
+        </MetaProvider>
       )}>
       <FileRoutes />
     </Router>

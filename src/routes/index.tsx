@@ -2,21 +2,21 @@ import { Create } from '@sinclair/typebox/value';
 import { createMutation, createQuery } from '@tanstack/solid-query';
 import { For, Show } from 'solid-js';
 import { createStore } from 'solid-js/store';
-import { app } from '~/app';
+import { api } from '~/app';
 import Todo from '~/components/Todo';
 import { todoInsertSchema } from '~/routes/api/todo/schema';
-import { handleEden, validate } from '~/utils';
+import { validate } from '~/utils';
 
 export default function Home() {
   const [todo, setTodo] = createStore(Create(todoInsertSchema));
 
   const todoQuery = createQuery(() => ({
     queryKey: ['todo'],
-    queryFn: async () => handleEden(await app.api.todo.get()),
+    queryFn: async () => (await api.todo.get()).data!,
   }));
 
   const todoAdd = createMutation(() => ({
-    mutationFn: async () => handleEden(await app.api.todo.post(todo)),
+    mutationFn: async () => await api.todo.post(todo),
     onSuccess: () => setTodo(Create(todoInsertSchema)),
   }));
 

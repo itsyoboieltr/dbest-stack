@@ -35,46 +35,9 @@ Bun will perform the following steps:
 - Install dependencies with `bun i`.
 - Initialize a fresh Git repo. Opt out with the `--no-git` flag.
 
-## Getting started
-
-Once the project is created and the dependencies are installed, the environment variables need to be set up. The following environment variables can be configured:
-
-[.env.example](.env.example)
-
-```bash
-DATABASE_URL="postgresql://postgres:xxxx@database:5432/dbest"
-VITE_HOST_URL="http://localhost:3000"
-COMPOSE_APP_PORT="3000"
-COMPOSE_DATABASE_PORT="5432"
-COMPOSE_DATABASE_USER="postgres"
-COMPOSE_DATABASE_PASSWORD="xxxx"
-COMPOSE_DATABASE_NAME="dbest"
-COMPOSE_DATABASE_BACKUP_PATH="$HOME/backup"
-COMPOSE_PROFILES="development"
-```
-
-It is recommended to use a `.env` file to configure the environment variables.
-
-- For local development `.env.local` should be used, as this is ignored by docker compose.
-- For production deployment `.env` should be used, as this is used by docker compose.
-
-The most important thing to configure is the database connection, as running the app without a database connection will result in an instant error.
-
-In case your database schema does not match the schema defined by `drizzle`, then the database needs to be synchronized. This can be done by running the following command:
-
-```bash
-bun push
-```
-
-In addition, `drizzle studio` can be used to connect to the database and browse, add, delete and update data based on the declared `drizzle schema`.
-
-```bash
-bun studio
-```
-
 ## Developing
 
-If everything is set up correctly, you can start the `development server` with:
+You can start the `development server` with:
 
 ```bash
 bun dev
@@ -96,24 +59,49 @@ Run in `production` by running the following command:
 bun start
 ```
 
+## Database
+
+In case your database schema does not match the schema defined by `drizzle`, then the database needs to be synchronized. This can be done by running the following command:
+
+```bash
+bun push
+```
+
+In addition, `drizzle studio` can be used to connect to the database and browse, add, delete and update data based on the declared `drizzle schema`.
+
+```bash
+bun studio
+```
+
+## Environment variables ([.env](.env.example))
+
+- `PORT`: port that the application runs on. Default: `3000`
+
+- `VITE_HOST_URL`: host URL for the application. Default: `http://localhost:3000`
+
+- `DATABASE_USER`: database user for Postgres. Default: `postgres`
+
+- `DATABASE_PASSWORD`: database password for Postgres. Default: `example`
+
+- `DATABASE_NAME`: database name for Postgres. Default: `dbest`
+
+- `DATABASE_URL`: database connection URL for Postgres. Default `memory://dbest`
+
+- `DATABASE_BACKUP_PATH`: path where the database backups are stored. Default: `$HOME/backup`
+
+- `COMPOSE_PROFILES`: profiles for `docker compose`. Default: `development`
+  - In a production setting, you might want to enable backups for the database. This can be done by setting the `COMPOSE_PROFILES` environment variable to `production`.
+
 ## Deployment
 
-Using the [Dockerfile](Dockerfile) or the [compose.yaml](compose.yaml) file, the application can be deployed to any `docker host`. The following command will build the `docker image` and start the application.
+Using the [Dockerfile](Dockerfile) or the [docker-compose.yml](docker-compose.yml) file, the application can be deployed to any `docker host`. The following command will build the `docker image` and start the application.
 
 ```bash
-docker compose up
+docker compose up -d
 ```
 
-Important notes for production use:
-
-1. In a production setting, you might want to enable `backups for the database`. This can be done by setting the `COMPOSE_PROFILES` environment variable to `production`.
+To stop the application, run the following command:
 
 ```bash
-COMPOSE_PROFILES="production"
-```
-
-2. The `COMPOSE_DATABASE_BACKUP_PATH` environment variable can be used to `customize` the path where the `database backups` are stored.
-
-```bash
-COMPOSE_DATABASE_BACKUP_PATH="$HOME/backup"
+docker compose down
 ```
