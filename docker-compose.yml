@@ -5,13 +5,13 @@ services:
     build:
       context: .
       args:
-        PORT: ${PORT:-3000}
-        VITE_HOST_URL: ${VITE_HOST_URL:-http://localhost:${PORT:-3000}}
-        DATABASE_URL: postgresql://${DATABASE_USER:-postgres}:${DATABASE_PASSWORD:-example}@database:5432/${DATABASE_NAME:-dbest}
+        VITE_HOST_URL: ${VITE_HOST_URL:-http://localhost:3000}
     depends_on:
       - database
     ports:
-      - ${PORT:-3000}:${PORT:-3000}
+      - ${PORT:-3000}:3000
+    environment:
+      DATABASE_URL: postgresql://${DATABASE_USER:-postgres}:${DATABASE_PASSWORD:-example}@database:5432/${DATABASE_NAME:-dbest}
 
   database:
     image: postgres:16-alpine

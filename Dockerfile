@@ -1,12 +1,8 @@
 FROM imbios/bun-node:latest-iron-alpine
 
-ARG PORT
 ARG VITE_HOST_URL
-ARG DATABASE_URL
 
-ENV PORT=$PORT
 ENV VITE_HOST_URL=$VITE_HOST_URL
-ENV DATABASE_URL=$DATABASE_URL
 
 WORKDIR /app
 COPY . .
@@ -14,6 +10,6 @@ COPY . .
 RUN bun i
 RUN bun run build
 
-EXPOSE $PORT
+EXPOSE 3000
 
 CMD ["bun", "start"]
