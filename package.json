@@ -10,7 +10,7 @@
     "studio": "drizzle-kit studio"
   },
   "devDependencies": {
-    "@types/bun": "1.1.1",
+    "@types/bun": "1.1.2",
     "@types/pg": "8.11.6",
     "@typescript-eslint/eslint-plugin": "7.8.0",
     "@typescript-eslint/parser": "7.8.0",
@@ -30,14 +30,14 @@
     "@electric-sql/pglite": "0.1.5",
     "@elysiajs/eden": "1.0.13",
     "@paralleldrive/cuid2": "2.2.2",
-    "@solidjs/meta": "0.29.3",
+    "@solidjs/meta": "0.29.4",
     "@solidjs/router": "0.13.3",
-    "@solidjs/start": "1.0.0-rc.1",
-    "@tanstack/solid-query": "5.35.5",
-    "drizzle-kit": "0.21.1",
+    "@solidjs/start": "1.0.0",
+    "@tanstack/solid-query": "5.37.1",
+    "drizzle-kit": "0.21.2",
     "drizzle-orm": "0.30.10",
     "drizzle-typebox": "0.1.1",
-    "elysia": "1.0.17",
+    "elysia": "1.0.21",
     "pg": "8.11.5",
     "solid-js": "1.8.17",
     "vinxi": "0.3.11"
